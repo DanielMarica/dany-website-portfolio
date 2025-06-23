@@ -1,0 +1,53 @@
+/* Draggable Skills - Simplified Cards with Colors */
+.medias {
+  position: relative;
+  z-index: 1;
+}
+
+.media {
+  transition: transform 0.3s ease;
+}
+
+.media:hover {
+  transform: translateY(-5px);
+}
+
+.media > div {
+  transition: all 0.3s ease;
+}
+
+.media:hover > div {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .medias {
+    grid-template-columns: repeat(3, 1fr) !important;
+    max-width: 100% !important;
+    gap: 0.75rem !important;
+  }
+  
+  .media > div {
+    width: 100px !important;
+    height: 100px !important;
+    padding: 12px !important;
+  }
+  
+  .media img {
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .media span {
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .medias {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}

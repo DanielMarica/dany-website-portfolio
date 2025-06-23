@@ -1,0 +1,11 @@
+/* ...existing code... */
+@media (max-width: 768px) {
+  .home,
+  .hero-section,
+  .section {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+/* ...existing code... */
