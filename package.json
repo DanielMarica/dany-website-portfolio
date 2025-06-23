@@ -1,16 +1,16 @@
 {
   "name": "frontend",
+  "homepage": "https://DanielMarica.github.io/portofolio-dany",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://<ton-nom-utilisateur>.github.io/portofolio-dany",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages --git git -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fontsource/roboto": "^5.2.6",
