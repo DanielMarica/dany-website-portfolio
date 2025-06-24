@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/700.css';
-
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import { Home } from './pages/Home';
@@ -43,7 +42,9 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+], {
+  basename: import.meta.env.PROD ? '/dany-website-portfolio' : '/'
+});
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
