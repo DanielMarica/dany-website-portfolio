@@ -5,6 +5,7 @@ import './Contact.css'; // Importez le fichier CSS
 export const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,10 +17,10 @@ export const Contact: React.FC = () => {
       'service_hk8jya6',
       'template_0mhqv6o',
       form.current,
-      'EHBJ-J0IIS2L_cTiw' // Remplacez par votre vraie Public Key EmailJS
+      'EHBJ-J0IIS2L_cTiw'
     )
     .then(() => {
-      alert('Message envoyé avec succès !');
+      setShowPopup(true);
       form.current?.reset();
     })
     .catch((error) => {
@@ -35,7 +36,6 @@ export const Contact: React.FC = () => {
     <div className="contact-container">
       <form ref={form} onSubmit={sendEmail} className="contact-form">
         <h2>Contactez-nous</h2>
-        
         <div className="form-group">
           <input 
             type="text" 
@@ -45,7 +45,6 @@ export const Contact: React.FC = () => {
             disabled={isLoading}
           />
         </div>
-        
         <div className="form-group">
           <input 
             type="email" 
@@ -55,7 +54,6 @@ export const Contact: React.FC = () => {
             disabled={isLoading}
           />
         </div>
-        
         <div className="form-group">
           <textarea 
             name="message" 
@@ -64,15 +62,22 @@ export const Contact: React.FC = () => {
             disabled={isLoading}
           />
         </div>
-        
         <button 
           type="submit" 
           disabled={isLoading}
-          className={isLoading ? 'loading' : ''}
+          className={isLoading ? 'cv-send-btn' + (isLoading ? ' loading' : '') : 'cv-send-btn'}
         >
           {isLoading ? 'Envoi en cours...' : 'Envoyer'}
         </button>
       </form>
+      {showPopup && (
+        <div className="popup-success">
+          <span>Message envoyé !</span>
+          <button className="popup-close" onClick={() => setShowPopup(false)}>
+            &times;
+          </button>
+        </div>
+      )}
     </div>
   );
 };
