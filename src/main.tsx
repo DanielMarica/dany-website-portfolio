@@ -8,7 +8,7 @@ import App from './App.tsx';
 import { Home } from './pages/Home';
 import { CV } from './pages/CV';
 import { Portfolio } from './pages/Portfolio';
-import Contact from './pages/Contact';
+import { Contact } from './pages/Contact';
 
 
 /**
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'contact',
-        element: <Contact title={"Contact"} />,
+        element: <Contact/>,
       },
     ],
   },

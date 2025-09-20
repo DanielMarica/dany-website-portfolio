@@ -1,513 +1,114 @@
-/* CV Styles */
-.cv {
-  padding: 0;
-  margin: 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-}
 
-.cv-section {
-  padding: 60px 40px;
-  margin: 0 auto;
-  max-width: 1200px;
-  position: relative;
-}
-
-.cv-header {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  margin: 20px;
-}
-
-.gsap-tools-label {
-  color: #00ff88;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.gsap-scroll-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.gsap-scroll-subtitle {
-  font-size: 1.4rem;
-  color: #e0e0e0;
-  margin-bottom: 40px;
-  font-style: italic;
-}
-
-/* CV Download & Preview Section */
-.cv-download-section {
-  margin: 3rem 0;
+/* Conteneur principal du CV */
+.cv-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
+  min-height: 100vh;
+  padding: 2rem 0;
+  background: none;
 }
 
-.cv-download-btn {
-  background: linear-gradient(45deg, #00ff88, #00bcd4);
-  color: white;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  margin: 0;
+/* Section du CV */
+.cv-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 2rem 1.5rem;
 }
 
-.cv-download-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+/* Groupe de champs */
+.form-group {
+  margin-bottom: 1.5rem;
 }
 
-/* Bouton de prévisualisation avec couleurs inversées */
-.cv-preview-btn {
-  background: #000000;
-  color: white;
-  border: 2px solid #00ff88;
-  padding: 15px 30px;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  margin: 0;
-}
-
-.cv-preview-btn:hover {
-  background: white;
-  color: #000000;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
-}
-
-.cv-contact-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
+/* Style général des champs */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 }
 
-.contact-item.clickable {
+/* État désactivé */
+.contact-form input:disabled,
+.contact-form textarea:disabled {
+  background-color: rgba(255, 255, 255, 0.05);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* États focus */
+.contact-form input:focus,
+
+/* Placeholder */
+.contact-form input::placeholder,
+
+
+/* Textarea spécifique */
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+
+/* Bouton d'envoi du formulaire CV : même style que .cv-download-btn */
+.cv-send-btn {
+  background: #f5f5f5;
+  color: #000;
+  border: 1px solid #000;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.contact-item.clickable:hover {
-  background: rgba(255, 255, 255, 0.2);
+.cv-send-btn:hover {
+  background: #000;
+  color: #f5f5f5;
   transform: translateY(-2px);
 }
 
-.contact-icon-img {
-  width: 24px;
-  height: 24px;
+
+.cv-send-btn:disabled {
+  background: #e1e1e1;
+  color: #aaa;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.contact-label {
-  font-weight: 600;
-  color: #00ff88;
-  min-width: 80px;
+
+/* Responsive CV */
+@media (max-width: 640px) {
+  .cv-section {
+    padding: 1rem 0.5rem;
+  }
 }
 
-.contact-value {
+/* Optionnel: style pour un titre */
+.contact-form h2 {
   color: #ffffff;
-  flex: 1;
-}
-
-.section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 40px;
+  margin-bottom: 2rem;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* SUPPRESSION DE TOUTES LES RÈGLES D'ESPACEMENT OBSOLÈTES */
-/* Maintenant que chaque section est séparée, ces règles ne sont plus nécessaires */
-
-.skill-items-row {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 0;
-}
-
-.skill-item.languages,
-.skill-item.soft-skills {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 35px 50px; /* Encore plus de padding pour accommoder le texte */
-  border-radius: 25px;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.skill-item.languages:hover,
-.skill-item.soft-skills:hover {
-  border-color: #00ff88;
-  transform: translateY(-2px);
-}
-
-.skill-name {
-  color: #ffffff;
-  font-weight: 600;
-  margin-bottom: 5px;
-  font-size: 2.5rem; /* Augmenté de 1.8rem à 2.5rem */
-}
-
-.skill-level {
-  color: #00ff88;
-  font-size: 2rem; /* Augmenté de 1.4rem à 2rem */
-  font-weight: 500;
-}
-
-/* Soft skills sans niveau */
-.skill-item.soft-skills .skill-level {
-  display: none;
-}
-
-/* Langues avec police encore plus grande */
-.skill-item.languages .skill-name {
-  font-size: 2.8rem; /* Augmenté de 2rem à 2.8rem */
-}
-
-.skill-item.languages .skill-level {
-  font-size: 2.2rem; /* Augmenté de 1.6rem à 2.2rem */
-}
-
-/* Timeline Styles - ONLY for education and experience sections */
-.timeline {
-  position: relative;
-  padding-left: 30px;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 15px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, #00ff88, #00bcd4);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 40px;
-  padding-left: 40px;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -8px;
-  top: 20px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #00ff88;
-  border: 3px solid #ffffff;
-}
-
-.timeline-content {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 25px;
-  border-radius: 15px;
-  border-left: 4px solid #00ff88;
-}
-
-.timeline-period {
-  color: #00ff88;
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-}
-
-.timeline-title {
-  color: #ffffff;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.timeline-company {
-  color: #00bcd4;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.timeline-location {
-  color: #e0e0e0;
-  font-size: 0.9rem;
-  margin-bottom: 15px;
-}
-
-.timeline-description {
-  color: #e0e0e0;
-  line-height: 1.6;
-}
-
-/* SUPPRESSION TOTALE ET DÉFINITIVE DE LA BARRE MAUVE VERTICALE */
-
-/* Cibler spécifiquement la section compétences ET sa section parente */
-.cv-section:has(.skills-organized),
-.cv-section:has(.skills-organized) *,
-.cv-section:has(.skill-category-section),
-.cv-section:has(.skill-category-section) * {
-  border: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
-  background-image: none !important;
-  background: transparent !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  position: relative !important;
-  left: 0 !important;
-}
-
-/* Supprimer TOUS les pseudo-éléments de la section compétences */
-.cv-section:has(.skills-organized)::before,
-.cv-section:has(.skills-organized)::after,
-.cv-section:has(.skills-organized) *::before,
-.cv-section:has(.skills-organized) *::after,
-.cv-section:has(.skill-category-section)::before,
-.cv-section:has(.skill-category-section)::after,
-.cv-section:has(.skill-category-section) *::before,
-.cv-section:has(.skill-category-section) *::after {
-  display: none !important;
-  content: none !important;
-  border: none !important;
-  background: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  position: absolute !important;
-  left: -9999px !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-/* ÉLIMINATION RADICALE - Cibler par structure HTML */
-.cv-section:nth-of-type(3),
-.cv-section:nth-of-type(3) *,
-.cv-section:nth-child(3),
-.cv-section:nth-child(3) * {
-  border: none !important;
-  border-left: none !important;
-  background-image: none !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-}
-
-.cv-section:nth-of-type(3)::before,
-.cv-section:nth-of-type(3)::after,
-.cv-section:nth-of-type(3) *::before,
-.cv-section:nth-of-type(3) *::after,
-.cv-section:nth-child(3)::before,
-.cv-section:nth-child(3)::after,
-.cv-section:nth-child(3) *::before,
-.cv-section:nth-child(3) *::after {
-  display: none !important;
-  content: none !important;
-  background: none !important;
-  border: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-/* SUPPRESSION COMPLÈTE DE TOUTE BARRE MAUVE DANS LA SECTION COMPÉTENCES */
-.skills-organized,
-.skills-organized *,
-.skill-category-section,
-.skill-category-section *,
-.skill-category-section.technical,
-.skill-category-section.technical *,
-.skill-category-section.languages,
-.skill-category-section.languages *,
-.skill-category-section.soft-skills,
-.skill-category-section.soft-skills *,
-.medias,
-.medias *,
-.media,
-.media * {
-  border: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-top: none !important;
-  border-bottom: none !important;
-  background-image: none !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  position: relative !important;
-  left: 0 !important;
-}
-
-.skills-organized::before,
-.skills-organized::after,
-.skills-organized *::before,
-.skills-organized *::after,
-.skill-category-section::before,
-.skill-category-section::after,
-.skill-category-section *::before,
-.skill-category-section *::after,
-.skill-category-section.technical::before,
-.skill-category-section.technical::after,
-.skill-category-section.technical *::before,
-.skill-category-section.technical *::after,
-.medias::before,
-.medias::after,
-.medias *::before,
-.medias *::after,
-.media::before,
-.media::after,
-.media *::before,
-.media *::after {
-  display: none !important;
-  content: none !important;
-  border: none !important;
-  background: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-/* Force override pour tous les éléments qui pourraient hériter de timeline */
-.cv .skills-organized,
-.cv .skills-organized *,
-.cv .skill-category-section,
-.cv .skill-category-section *,
-.cv .medias,
-.cv .medias * {
-  border-left: none !important;
-  background-image: none !important;
-  background: transparent !important;
-  position: relative !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-}
-
-.cv .skills-organized::before,
-.cv .skills-organized::after,
-.cv .skills-organized *::before,
-.cv .skills-organized *::after,
-.cv .skill-category-section::before,
-.cv .skill-category-section::after,
-.cv .skill-category-section *::before,
-.cv .skill-category-section *::after,
-.cv .medias::before,
-.cv .medias::after,
-.cv .medias *::before,
-.cv .medias *::after {
-  display: none !important;
-  content: none !important;
-  border: none !important;
-  background: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-/* Classes pour l'espacement des sections */
-.cv-section.languages-section,
-.cv-section.soft-skills-section,
-.cv-section.experience-section {
-  padding-top: 8rem !important;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .cv-section {
-    padding: 40px 20px;
-  }
-  
-  .cv-section.languages-section,
-  .cv-section.soft-skills-section,
-  .cv-section.experience-section {
-    padding-top: 5rem !important;
-  }
-  
-  .skill-item.languages,
-  .skill-item.soft-skills {
-    padding: 30px 40px;
-    width: 90%;
-    max-width: 300px;
-    text-align: center;
-  }
-  
-  .skill-name {
-    font-size: 2rem;
-  }
-  
-  .skill-item.languages .skill-name {
-    font-size: 2.3rem;
-  }
-  
-  .skill-item.languages .skill-level {
-    font-size: 1.8rem;
-  }
-  
-  .cv-contact-info {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 15px;
-  }
-  
-  .contact-item {
-    max-width: 350px;
-    width: 100%;
-  }
-  
-  .skill-items-row {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .skills-organized {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .skill-category-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .qualities-grid {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 20px;
-  }
-  
-  .quality-item {
-    max-width: 300px;
-    text-align: center;
-  }
 }

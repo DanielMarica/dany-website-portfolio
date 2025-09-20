@@ -23,7 +23,7 @@ export const CV: React.FC = () => {
     const cv = cvRef.current;
     if (!cv) return;
 
-    // Animate sections on scroll
+    // Animate sections on scroll (only once when entering viewport)
     gsap.fromTo('.cv-section',
       { opacity: 0, y: 50 },
       {
@@ -35,12 +35,10 @@ export const CV: React.FC = () => {
         scrollTrigger: {
           trigger: cv,
           start: "top 80%",
-          toggleActions: "play none none reverse"
+          toggleActions: "play reverse play reverse"
         }
       }
     );
-
-    // Animate timeline items
     gsap.fromTo('.timeline-item',
       { opacity: 0, x: -30 },
       {
@@ -52,12 +50,10 @@ export const CV: React.FC = () => {
         scrollTrigger: {
           trigger: '.timeline',
           start: "top 70%",
-          toggleActions: "play none none reverse"
+          toggleActions: "play reverse play reverse"
         }
       }
     );
-
-    // Animate skills
     gsap.fromTo('.skill-item',
       { opacity: 0, scale: 0.8 },
       {
@@ -69,11 +65,10 @@ export const CV: React.FC = () => {
         scrollTrigger: {
           trigger: '.skills-grid',
           start: "top 75%",
-          toggleActions: "play none none reverse"
+          toggleActions: "play reverse play reverse"
         }
       }
     );
-
   }, []);
 
   const downloadCV = () => {
@@ -113,7 +108,7 @@ export const CV: React.FC = () => {
     <div ref={cvRef} className="cv" style={{ marginBottom: '4rem' }}>
       {/* Header Section */}
       <section className="cv-section cv-header">
-        <div className="gsap-tools-label">{"{ PROFESSIONAL CV }"}</div>
+        <div className="gsap-tools-label">{"{ Resume }"}</div>
         <h2 className="gsap-scroll-title">LIVIUS MARICA</h2>
         {/* Download CV Button */}
         <div className="cv-download-section">
@@ -255,48 +250,6 @@ export const CV: React.FC = () => {
         </div>
       </section>
       {/* Professional Experience */}
-      <section className="cv-section">
-        <h3 className="section-title" style={{ paddingTop: '6rem' }}>PROFESSIONAL EXPERIENCE</h3>
-        <div className="timeline">
-          <div className="timeline-item experience">
-            <div className="timeline-content">
-              <div className="timeline-period">2023 – Present</div>
-              <h4 className="timeline-title">Student Job Coffee Maker</h4>
-              <div className="timeline-company">Pret A Manger SSP</div>
-              <div className="timeline-location">Gare du Midi</div>
-              <p className="timeline-description">
-                • Customer service in an international environment<br/>
-                • Preparation and service of food products<br/>
-                • Teamwork in a fast-paced environment<br/>
-                • Multilingual communication with customers
-              </p>
-            </div>
-          </div>
-          <div className="timeline-item experience">
-            <div className="timeline-content">
-              <div className="timeline-period">2022 – 2023</div>
-              <h4 className="timeline-title">Student Job</h4>
-              <div className="timeline-company">BEPHOTO - IT Startup</div>
-              <div className="timeline-location">Braine-l'Alleud</div>
-              <p className="timeline-description">
-                • Technical support and user training<br/>
-                • Delivery and explanation of photo equipment<br/>
-              </p>
-            </div>
-          </div>
-          <div className="timeline-item experience">
-            <div className="timeline-content">
-              <div className="timeline-period">2021 – 2022</div>
-              <h4 className="timeline-title">Student Job</h4>
-              <div className="timeline-company">iSFI - Food Industry</div>
-              <div className="timeline-location">Braine-l'Alleud</div>
-              <p className="timeline-description">
-                • Packaging of goods in the food industry<br/>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* Qualities Section */}
       <section className="cv-section">
         <h3 className="section-title">Qualities</h3>
