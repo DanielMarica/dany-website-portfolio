@@ -35,12 +35,12 @@ export const Contact: React.FC = () => {
   return (
     <div className="contact-container">
       <form ref={form} onSubmit={sendEmail} className="contact-form">
-        <h2>Contactez-nous</h2>
+        <h2>Contact-Me</h2>
         <div className="form-group">
           <input 
             type="text" 
             name="user_name" 
-            placeholder="Votre nom" 
+            placeholder="Your name" 
             required 
             disabled={isLoading}
           />
@@ -49,7 +49,7 @@ export const Contact: React.FC = () => {
           <input 
             type="email" 
             name="user_email" 
-            placeholder="Votre email" 
+            placeholder="Your email" 
             required 
             disabled={isLoading}
           />
@@ -57,7 +57,7 @@ export const Contact: React.FC = () => {
         <div className="form-group">
           <textarea 
             name="message" 
-            placeholder="Votre message" 
+            placeholder="Your message" 
             required 
             disabled={isLoading}
           />
@@ -67,12 +67,12 @@ export const Contact: React.FC = () => {
           disabled={isLoading}
           className={isLoading ? 'cv-send-btn' + (isLoading ? ' loading' : '') : 'cv-send-btn'}
         >
-          {isLoading ? 'Envoi en cours...' : 'Envoyer'}
+          {isLoading ? 'Loading...' : 'Send!'}
         </button>
       </form>
       {showPopup && (
         <div className="popup-success">
-          <span>Message envoyé !</span>
+          <span>Send sucessfully!</span>
           <button className="popup-close" onClick={() => setShowPopup(false)}>
             &times;
           </button>
