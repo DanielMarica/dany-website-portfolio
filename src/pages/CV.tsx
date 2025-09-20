@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { PageNavigation } from '../components/UI/PageNavigation';
 import { DraggableSkills } from '../components/UI/DraggableSkills';
 
 // Import des images
@@ -356,28 +355,21 @@ export const CV: React.FC = () => {
 
       {/* Qualities Section */}
       <section className="cv-section">
-      <h3 className="section-title">QUALITÉS PROFESSIONNELLES</h3>
+      <h3 className="section-title">Skills</h3>
       <div className="qualities-grid">
         <div className="quality-item">
-        <h4>🚀 Dynamisme</h4>
-        <p>Prise d'initiative et énergie dans tous les projets</p>
+        <p>Motivated and detail-oriented
+individual</p>
         </div>
         <div className="quality-item">
-        <h4>🎯 Flexibilité</h4>
-        <p>Emploi du temps flexible et grande disponibilité</p>
+        <p>Soon multilingual: English, Romanian,
+French, and Dutch</p>
         </div>
         <div className="quality-item">
-        <h4>🤝 Collaboration</h4>
-        <p>Excellent travail en équipe et esprit de service</p>
-        </div>
-        <div className="quality-item">
-        <h4>💡 Innovation</h4>
-        <p>Passion pour les nouvelles technologies et solutions créatives</p>
+        <p>Team spirit</p>
         </div>
       </div>
       </section>
-
-      <PageNavigation />
     </div>
   );
 };

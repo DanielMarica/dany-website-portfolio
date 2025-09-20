@@ -4,8 +4,7 @@ import { gsap } from 'gsap';
 
 const navItems = [
   { path: '/cv', label: 'CV' },
-  { path: '/salesforce', label: 'Salesforce' },
-  { path: '/portfolio', label: 'Portfolio' },
+  { path: '/portfolio', label: 'Projet' },
   { path: '/contact', label: 'Contact' }
 ];
 

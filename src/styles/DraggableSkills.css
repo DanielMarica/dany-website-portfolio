@@ -49,5 +49,19 @@
 @media (max-width: 480px) {
   .medias {
     grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+  .media > div {
+    width: 80px !important;
+    height: 80px !important;
+    padding: 8px !important;
+  }
+  .media img {
+    width: 28px !important;
+    height: 28px !important;
+    margin-bottom: 4px !important;
+  }
+  .media span {
+    font-size: 0.65rem !important;
   }
 }

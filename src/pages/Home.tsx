@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { AnimatedBox } from '../components/UI/AnimatedBox';
+
 import { ScrambleText } from '../components/UI/ScrambleText';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -50,12 +50,12 @@ export const Home: React.FC = () => {
   return (
     <div ref={containerRef} className="home" style={{ background: 'none', border: 'none', boxShadow: 'none', overflowX: 'hidden' }}>
       <section className="hero-section">
-        <ScrambleText 
-          text="Livius Daniel Marica" 
-          tag="h2" 
-          className="hero-title"
-          slowMotion={true}
-        />
+          <ScrambleText 
+              text={"Livius\nMarica"}
+              tag="h2"
+              className="hero-title"
+              slowMotion={true}
+            />
         <ScrambleText 
           text="Développeur Full-Stack & Salesforce" 
           tag="p" 
@@ -67,23 +67,6 @@ export const Home: React.FC = () => {
         </p>
       </section>
 
-      <section className="section expertise-section">
-        <h3 className="section-title">EXPERTISE DOMAINS</h3>
-        <div className="expertise-grid">
-          <AnimatedBox
-            title="Web Development"
-            description="React, TypeScript, Node.js and modern technologies for high-performance applications."
-          />
-          <AnimatedBox
-            title="Salesforce"
-            description="Configuration, Apex development, Lightning Components, integrations and automation."
-          />
-          <AnimatedBox
-            title="Full Stack Solutions"
-            description="Complete end-to-end solutions, from database architecture to user interface."
-          />
-        </div>
-      </section>
     </div>
   );
 };

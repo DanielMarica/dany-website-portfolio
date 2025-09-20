@@ -2,7 +2,6 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from './components/Layout/Header';
 import { Navigation } from './components/Layout/Navigation';
-import { PageNavigation } from './components/UI/PageNavigation';
 import './styles/global.css';
 
 /**
@@ -33,8 +32,6 @@ const App: React.FC = () => {
         <Outlet />
       </main>
 
-      {/* Fixed page navigation buttons */}
-      <PageNavigation />
     </div>
   );
 };

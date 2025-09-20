@@ -1,4 +1,13 @@
 /* ...existing code... */
+@media (min-width: 481px) {
+  .marica {
+    display: inline !important;
+    font-size: inherit !important;
+    margin-top: 0 !important;
+    text-align: inherit !important;
+    width: auto !important;
+  }
+}
 @media (max-width: 768px) {
   .home,
   .hero-section,
@@ -8,4 +17,29 @@
     box-shadow: none !important;
   }
 }
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 0.6rem !important;
+    line-height: 1.1 !important;
+    word-break: break-word !important;
+    text-align: center !important;
+    padding: 0 0.2rem !important;
+    letter-spacing: 0.01em !important;
+    display: block !important;
+  }
+  .marica {
+    display: block !important;
+    font-size: 1em !important;
+    margin-top: 0.3em !important;
+    text-align: center !important;
+    width: 100%;
+  }
+  .section-title {
+    font-size: 1rem !important;
+    line-height: 1.1 !important;
+  }
+
+  }
+
 /* ...existing code... */

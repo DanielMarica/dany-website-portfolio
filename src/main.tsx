@@ -8,8 +8,8 @@ import App from './App.tsx';
 import { Home } from './pages/Home';
 import { CV } from './pages/CV';
 import { Portfolio } from './pages/Portfolio';
-import { Contact } from './pages/Contact';
-import { Salesforce } from './pages/Salesforce';
+import Contact from './pages/Contact';
+
 
 /**
  * Defines the routes for the application using `createBrowserRouter`.
@@ -34,11 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'contact',
-        element: <Contact />,
-      },
-      {
-        path: 'salesforce',
-        element: <Salesforce />,
+        element: <Contact title={"Contact"} />,
       },
     ],
   },
